@@ -12,6 +12,32 @@ router.get('/records', (req, res) => {
         .catch(err => res.status(404).json({noContactsFound: 'No Contacts Found'}));
 });
 
+//This interface will get the list of records with pagination
+router.get('/paginatedRecords/:page', async(req, res) => {
+    const page = req.params.page || 1;
+    const limit = 5;
+
+    try {
+        // execute query with page and limit values
+        const contacts = await Contacts.find()
+            .limit(limit * 1)
+            .skip((page - 1) * limit)
+            .exec();
+
+        // get total documents in the Contacts collection
+        const count = await Contacts.countDocuments();
+
+        // return response with posts, total pages, and current page
+        res.json({
+            contacts,
+            totalPages: Math.ceil(count / limit),
+            currentPage: page
+        });
+    } catch (err) {
+        console.error(err.message);
+    }
+});
+
 //This interface will get a single record by id
 router.get('/record/:id', (req, res) => {
     Contacts.findById(req.params.id)

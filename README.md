@@ -22,4 +22,4 @@ I used the following resources to guide me along the way
 
 >https://blog.logrocket.com/mern-stack-tutorial/
 ### Pagination
->https://evdokimovm.github.io/javascript/nodejs/mongodb/pagination/expressjs/ejs/bootstrap/2017/08/20/create-pagination-with-nodejs-mongodb-express-and-ejs-step-by-step-from-scratch.html
+>https://javascript.plainenglish.io/simple-pagination-with-node-js-mongoose-and-express-4942af479ab2

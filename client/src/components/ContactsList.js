@@ -28,9 +28,10 @@ export default function ContactsList() {
     useEffect(() => {
         async function getContacts() {
             axios
-                .get(`http://localhost:8082/records`)
+                .get(`http://localhost:8082/paginatedRecords/` + 1)
                 .then(res => {
-                    setRecords(res.data);
+                    setRecords(res.data.contacts);
+                    console.log(res.data);
                 })
                 .catch(err => {
                     console.log(`Error encountered when fetching contact list: ${err.statusText}`);
