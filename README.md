@@ -28,3 +28,6 @@ I used the following resources to guide me along the way
 >https://medium.com/@fenilshah23398/pagination-using-mongodb-and-react-8e1e54506330
 > 
 > https://javascript.plainenglish.io/simple-pagination-with-node-js-mongoose-and-express-4942af479ab2
+
+### Partial Search
+>https://stackoverflow.com/questions/43729199/how-i-can-use-like-operator-on-mongoose
