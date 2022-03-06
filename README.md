@@ -2,7 +2,7 @@
  A MERN Stack Contact Book Web Application
 
 ## Tech Stack Used
-> MongoDB
+> MongoDB Atlas
 > 
 > ExpressJS
 > 
