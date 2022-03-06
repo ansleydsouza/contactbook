@@ -15,7 +15,7 @@ router.get('/records', (req, res) => {
 //This interface will get the list of records with pagination
 router.get('/paginatedRecords/:page', async(req, res) => {
     const page = req.params.page || 1;
-    const limit = 5;
+    const limit = 20;
 
     try {
         // execute query with page and limit values
