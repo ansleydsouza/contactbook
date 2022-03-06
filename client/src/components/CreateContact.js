@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { useNavigate } from "react-router";
 import axios from 'axios';
 
 export default function CreateContact() {
@@ -6,6 +7,8 @@ export default function CreateContact() {
         contact_name: "",
         contact_number: "",
     });
+
+    const navigate = useNavigate();
 
     // Update property params on form change
     function updateForm(value) {
@@ -22,6 +25,7 @@ export default function CreateContact() {
         axios
             .post('http://localhost:8082/create', newContact)
             .then(res => {setForm({ contact_name:"", contact_number: "" })
+                navigate("/", { replace: true });
             })
             .catch(err => {
                 console.log(`Encountered error when creating contact: ${err.statusText}`);

@@ -6,7 +6,7 @@ const Contacts = require('../../models/Contact');
 //Application interfaces
 
 //This interface will get the list of all contacts
-router.get('/record', (req, res) => {
+router.get('/records', (req, res) => {
     Contacts.find()
         .then(contacts => res.json(contacts))
         .catch(err => res.status(404).json({noContactsFound: 'No Contacts Found'}));
