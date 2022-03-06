@@ -1,11 +1,11 @@
-#Contact Book
+# Contact Book
  A MERN Stack Contact Book Web Application
 
-##Tech Stack Used
+## Tech Stack Used
 
-##Guidance
+## Guidance
 
-##Usage
+## Usage
 ```
 git clone https://github.com/ansleydsouza/contactbook.git
 cd contactbook/server
