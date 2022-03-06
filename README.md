@@ -2,6 +2,13 @@
  A MERN Stack Contact Book Web Application
 
 ## Tech Stack Used
+> MongoDB
+> 
+> ExpressJS
+> 
+> NodeJS
+> 
+> React JS
 
 ## Usage
 ```
