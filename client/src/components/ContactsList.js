@@ -97,6 +97,7 @@ export default function ContactsList() {
                     type="text"
                     className="form-control"
                     id="searchName"
+                    placeholder="Search..."
                     value={searchName}
                     onChange={(e) => setSearchName(e.target.value)}
                 />

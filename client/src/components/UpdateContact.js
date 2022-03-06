@@ -64,6 +64,7 @@ export default function UpdateContact() {
                         type="text"
                         className="form-control"
                         id="contact_name"
+                        placeholder="Name"
                         value={form.contact_name}
                         onChange={(e) => updateForm({ contact_name: e.target.value })}
                     />
@@ -74,6 +75,7 @@ export default function UpdateContact() {
                         type="text"
                         className="form-control"
                         id="contact_number"
+                        placeholder="Contact Number"
                         value={form.contact_number}
                         onChange={(e) => updateForm({ contact_number: e.target.value })}
                     />
