@@ -12,6 +12,13 @@ router.get('/records', (req, res) => {
         .catch(err => res.status(404).json({noContactsFound: 'No Contacts Found'}));
 });
 
+//This interface will get a single record by id
+router.get('/record/:id', (req, res) => {
+    Contacts.findById(req.params.id)
+        .then(book => res.json(book))
+        .catch(err => res.status(404).json({ nobookfound: 'No Book found' }));
+});
+
 //This interface will add a single contact number and number to the database
 router.post('/create', (req, res) => {
     Contacts.create(req.body)
@@ -20,7 +27,7 @@ router.post('/create', (req, res) => {
 });
 
 //This interface will update a record by the id
-router.put('/:id', (req, res) => {
+router.put('/update/:id', (req, res) => {
     Contacts.findByIdAndUpdate(req.params.id, req.body)
         .then(book => res.json({ msg: 'Updated successfully' }))
         .catch(err =>

@@ -1,14 +1,31 @@
-import React, { useState } from "react";
-import { useNavigate } from "react-router";
-import axios from 'axios';
+import React, { useState, useEffect } from "react";
+import { useParams, useNavigate } from "react-router";
+import axios from "axios";
 
-export default function CreateContact() {
+export default function UpdateContact() {
     const [form, setForm] = useState({
         contact_name: "",
         contact_number: "",
     });
 
+    const params = useParams();
     const navigate = useNavigate();
+
+    useEffect(() => {
+        async function getSingleContactData() {
+            const id = params.id.toString();
+            axios
+                .get('http://localhost:8082/record/'+id)
+                .then(res => {
+                    setForm(res.data)
+                })
+                .catch(err => {
+                    console.log(`Error getting contact data`);
+                })
+        }
+        getSingleContactData();
+        return;
+    }, [params.id, navigate]);
 
     // Update property params on form change
     function updateForm(value) {
@@ -20,22 +37,26 @@ export default function CreateContact() {
     async function onSubmit(e) {
         e.preventDefault();
 
-        const newContact = { ...form };
+        const id = params.id.toString();
 
-        axios
-            .post('http://localhost:8082/create', newContact)
-            .then(res => {setForm({ contact_name:"", contact_number: "" })
-                navigate("/", { replace: true });
+        const editedContact = {
+            contact_name: form.contact_name,
+            contact_number: form.contact_number,
+        };
+
+        axios.put('http://localhost:8082/update/'+id, editedContact)
+            .then(res => {
+                navigate("/");
             })
             .catch(err => {
-                console.log(`Encountered error when creating contact: ${err.statusText}`);
+                console.log("Error encountered when updating contact");
             })
 
     }
 
     return (
         <div>
-            <h3>Create a new contact</h3>
+            <h3>Update an existing contact</h3>
             <form onSubmit={onSubmit}>
                 <div className="form-group">
                     <label htmlFor="contact_name">Contact Name</label>
@@ -60,12 +81,11 @@ export default function CreateContact() {
                 <div className="form-group">
                     <input
                         type="submit"
-                        value="Create Contact"
+                        value="Update Contact"
                         className="btn btn-primary"
                     />
                 </div>
             </form>
         </div>
     );
-
 }

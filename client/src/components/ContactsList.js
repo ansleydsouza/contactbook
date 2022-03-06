@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
 
 //Create the record component to improve code readability
@@ -8,6 +8,7 @@ const Record = (props) => (
         <td>{ props.record.contact_name }</td>
         <td>{ props.record.contact_number }</td>
         <td>
+            <Link className="btn btn-link" to={`/update/${props.record._id}`}>Update</Link>
             <button className="btn btn-link"
                     onClick={() => {
                         props.deleteRecord(props.record._id);
