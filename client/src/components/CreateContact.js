@@ -34,10 +34,10 @@ export default function CreateContact() {
     }
 
     return (
-        <div>
+        <div className="container">
             <h3>Create a new contact</h3>
             <form onSubmit={onSubmit}>
-                <div className="form-group">
+                <div className="gy-5">
                     <label htmlFor="contact_name">Contact Name</label>
                     <input
                         type="text"
@@ -47,7 +47,7 @@ export default function CreateContact() {
                         onChange={(e) => updateForm({ contact_name: e.target.value })}
                     />
                 </div>
-                <div className="form-group">
+                <div className="mb-3">
                     <label htmlFor="contact_number">Contact Number</label>
                     <input
                         type="text"
@@ -57,7 +57,7 @@ export default function CreateContact() {
                         onChange={(e) => updateForm({ contact_number: e.target.value })}
                     />
                 </div>
-                <div className="form-group">
+                <div className="mb-3">
                     <input
                         type="submit"
                         value="Create Contact"
