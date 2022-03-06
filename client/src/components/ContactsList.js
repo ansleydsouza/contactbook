@@ -66,12 +66,12 @@ export default function ContactsList() {
 
     return (
         <div>
-            <h3>All Contacts</h3>
             <table className="table table-striped" style={{marginTop: 20}}>
                 <thead>
                 <tr>
                     <td>Name</td>
                     <td>Phone Number</td>
+                    <td>Actions</td>
                 </tr>
                 </thead>
                 <tbody>
