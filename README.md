@@ -9,6 +9,8 @@
 > NodeJS
 > 
 > React JS
+> 
+> Swaagger
 
 ## Usage
 ```
@@ -38,3 +40,6 @@ I used the following resources to guide me along the way
 
 ### Partial Search
 >https://stackoverflow.com/questions/43729199/how-i-can-use-like-operator-on-mongoose
+
+### Swagger
+>https://levelup.gitconnected.com/how-to-add-swagger-ui-to-existing-node-js-and-express-js-project-2c8bad9364ce
