@@ -1,6 +1,7 @@
 # Contact Book
  A MERN Stack Contact Book Web Application
 
+
 ## Tech Stack Used
 > MongoDB Atlas
 > 
@@ -14,6 +15,7 @@
 > 
 > Python - For anomaly detection
 
+
 ## Usage
 ```
 git clone https://github.com/ansleydsouza/contactbook.git
@@ -25,6 +27,7 @@ npm install
 npm start
 ```
 >Swagger Endpoint: http://localhost:8082/docs
+
 
 ## Guidance
 
@@ -48,3 +51,6 @@ I used the following resources to guide me along the way
 >https://levelup.gitconnected.com/how-to-add-swagger-ui-to-existing-node-js-and-express-js-project-2c8bad9364ce
 > 
 > https://dev.to/mikefmeyer/build-a-node-js-express-rest-api-with-mongodb-and-swagger-3de9
+
+### Anomaly Detection
+>https://medium.com/learningdatascience/anomaly-detection-techniques-in-python-50f650c75aaf
