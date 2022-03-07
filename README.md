@@ -10,7 +10,9 @@
 > 
 > React JS
 > 
-> Swagger
+> Swagger - For API Documentation
+> 
+> Python - For anomaly detection
 
 ## Usage
 ```
