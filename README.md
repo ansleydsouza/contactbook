@@ -22,6 +22,7 @@ cd ../contactbook/client
 npm install
 npm start
 ```
+>Swagger Endpoint: http://localhost:8082/docs
 
 ## Guidance
 
@@ -43,3 +44,5 @@ I used the following resources to guide me along the way
 
 ### Swagger
 >https://levelup.gitconnected.com/how-to-add-swagger-ui-to-existing-node-js-and-express-js-project-2c8bad9364ce
+> 
+> https://dev.to/mikefmeyer/build-a-node-js-express-rest-api-with-mongodb-and-swagger-3de9

@@ -113,14 +113,12 @@ router.post('/create', (req, res) => {
  *            schema:
  *              type: object
  *              properties:
- *                  id:
- *                      type: string
  *                  contact_name:
  *                      type: string
  *                  contact_number:
  *                      type: string
  *      responses:
- *          200:
+ *          201:
  *              description: Contact updated successfully
  */
 router.put('/update/:id', (req, res) => {
@@ -142,7 +140,7 @@ router.put('/update/:id', (req, res) => {
  *        type: string
  *        description: The contact to be deleted
  *      responses:
- *          200:
+ *          201:
  *              description: Record deleted successfully
  */
 router.delete('/:id', (req, res) => {
