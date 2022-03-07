@@ -10,7 +10,7 @@
 > 
 > React JS
 > 
-> Swaagger
+> Swagger
 
 ## Usage
 ```

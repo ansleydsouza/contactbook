@@ -20,18 +20,37 @@ router.get('/records', (req, res) => {
         .catch(err => res.status(404).json({noContactsFound: 'No Contacts Found'}));
 });
 
-//This interface will get the list of records with pagination
+/**
+ * @swagger
+ * /paginatedRecords/{page}/{searchName}:
+ *  get:
+ *      parameters:
+ *          - in: path
+ *            name: page
+ *            type: integer
+ *            required: true
+ *            description: The page number
+ *          - in: path
+ *            name: searchName
+ *            default: " "
+ *            type: string
+ *            description: The name to search by
+ *      description: Get records by pagination and searchName
+ *      responses:
+ *          200:
+ *              description: Return the contacts by searchName and pagination
+ */
 router.get('/paginatedRecords/:page/:searchName?', async(req, res) => {
     const page = req.params.page || 1;
     var searchName;
     if (req.params.searchName != null) {
         searchName = req.params.searchName;
     }
-    const limit = 20;
+    const limit = 10;
 
     try {
         // execute query with page and limit values
-        const contacts = await Contacts.find(searchName  != null ? { "contact_name": { $regex: '.*' + searchName + '.*' }} : null)
+        const contacts = await Contacts.find(searchName  != null ? { "contact_name": { $regex: '.*' + searchName + '.*', $options: 'i' }} : null)
             .limit(limit * 1)
             .skip((page - 1) * limit)
             .sort("contact_name")
