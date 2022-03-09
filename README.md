@@ -29,6 +29,9 @@ npm run app     //Backend is served on http://localhost:8082
 cd ../contactbook/client
 npm install
 npm start       //Frontend is served on http://localhost:3000
+cd ../anomaly-detection
+pip3 install pymongo[srv]
+run main class in the main.py file
 ```
 >Swagger Endpoint: http://localhost:8082/docs
 
