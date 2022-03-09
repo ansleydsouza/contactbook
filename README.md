@@ -5,13 +5,17 @@
 ## Tech Stack Used
 > MongoDB Atlas
 > 
+> Mongoose
+> 
 > ExpressJS
 > 
 > NodeJS
 > 
 > React JS
 > 
-> Swagger - For API Documentation
+> Swagger UI Express
+> 
+> Swagger JS Doc
 > 
 > Python - For anomaly detection
 
