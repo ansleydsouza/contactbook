@@ -62,6 +62,7 @@ export default function UpdateContact() {
                     <label htmlFor="contact_name">Contact Name</label>
                     <input
                         type="text"
+                        disabled="true"
                         className="form-control"
                         id="contact_name"
                         placeholder="Name"

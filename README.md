@@ -25,12 +25,19 @@
 git clone https://github.com/ansleydsouza/contactbook.git
 cd contactbook/server
 npm install
-npm run app
+npm run app     //Backend is served on http://localhost:8082
 cd ../contactbook/client
 npm install
-npm start
+npm start       //Frontend is served on http://localhost:3000
 ```
 >Swagger Endpoint: http://localhost:8082/docs
+
+
+## Known Issues to be fixed
+I have not been able to get the following items to work completely:
+> Swagger UI testing does not work for the Update call
+> 
+> Currently the anomaly detection module can only get the server information
 
 
 ## Guidance

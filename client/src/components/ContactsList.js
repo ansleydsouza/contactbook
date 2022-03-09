@@ -22,7 +22,8 @@ const Record = (props) => (
 export default function ContactsList() {
     const [records, setRecords] = useState([]);
     const [currentPage, setCurrentPage] = useState(1);
-    const [totalPages, setTotalPages] = useState(1);
+    const [totalPages, setTotalPages] = useState();
+    const [countOfContacts, setCountOfContacts] = useState();
     const [searchName, setSearchName] = useState("");
 
     //Fetch records from the database on page load
@@ -33,7 +34,8 @@ export default function ContactsList() {
                 .get(`http://localhost:8082/paginatedRecords/` + currentPage + `/` + searchName)
                 .then(res => {
                     setRecords(res.data.contacts);
-                    setTotalPages(totalPages);
+                    setTotalPages(res.data.totalPages);
+                    setCountOfContacts(res.data.count);
                 })
                 .catch(err => {
                     console.log(`Error encountered when fetching contact list: ${err.statusText}`);
@@ -43,7 +45,8 @@ export default function ContactsList() {
                 .get(`http://localhost:8082/paginatedRecords/` + currentPage)
                 .then(res => {
                     setRecords(res.data.contacts);
-                    setTotalPages(totalPages);
+                    setTotalPages(res.data.totalPages);
+                    setCountOfContacts(res.data.count);
                 })
                 .catch(err => {
                     console.log(`Error encountered when fetching contact list: ${err.statusText}`);
@@ -60,8 +63,9 @@ export default function ContactsList() {
     async function deleteRecord(id) {
         axios.delete(`http://localhost:8082/`+id)
             .then(res => {
-                const newRecords= records.filter((el) => el._id !== id);
-                setRecords(newRecords);
+                getContacts(currentPage, searchName)
+                //const newRecords= records.filter((el) => el._id !== id);
+                //setRecords(newRecords);
             })
             .catch(err => {
                 console.log(`Error deleting record from the database: ${err.statusText}`);
@@ -114,6 +118,9 @@ export default function ContactsList() {
                         </li>
                     </ul>
                 </nav>
+            </div>
+            <div className="pt-3">
+                Total Number of Contacts: {countOfContacts}
             </div>
             <table className="table table-striped">
                 <thead>

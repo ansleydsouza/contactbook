@@ -7,21 +7,6 @@ const Contacts = require('../../models/Contact');
 
 /**
  * @swagger
- * /records:
- *   get:
- *     description: Get All contacts in the database
- *     responses:
- *       200:
- *         description: Returns all the contacts in the database
- */
-router.get('/records', (req, res) => {
-    Contacts.find()
-        .then(contacts => res.json(contacts))
-        .catch(err => res.status(404).json({noContactsFound: 'No Contacts Found'}));
-});
-
-/**
- * @swagger
  * /paginatedRecords/{page}/{searchName}:
  *  get:
  *      parameters:
@@ -63,7 +48,8 @@ router.get('/paginatedRecords/:page/:searchName?', async(req, res) => {
         res.json({
             contacts,
             totalPages: Math.ceil(count / limit),
-            currentPage: page
+            currentPage: page,
+            count
         });
     } catch (err) {
         console.error(err.message);
