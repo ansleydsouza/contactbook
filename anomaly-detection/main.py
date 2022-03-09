@@ -1,16 +1,24 @@
-# This is a sample Python script.
+import pymongo
+from pymongo import MongoClient
+import json
 
-# Press ⌃R to execute it or replace it with your code.
-# Press Double ⇧ to search everywhere for classes, files, tool windows, actions, and settings.
 
 
-def print_hi(name):
-    # Use a breakpoint in the code line below to debug your script.
-    print(f'Hi, {name}')  # Press ⌘F8 to toggle the breakpoint.
+def connect_to_mongo():
+
+    with open('default.json') as config:
+        data = json.load(config)
+
+    connection_string = data['CONNECTION_STRING']
+
+    client = MongoClient(connection_string)
+
+    return client['Contacts']
 
 
 # Press the green button in the gutter to run the script.
 if __name__ == '__main__':
-    print_hi('PyCharm')
+    db = connect_to_mongo()
+    print(db)
 
 # See PyCharm help at https://www.jetbrains.com/help/pycharm/
